@@ -1,27 +1,48 @@
-const endPoint = "http://localhost:3000/api/v1/formations"
+const endPointClubs = "http://localhost:3000/api/v1/clubs"
+const endPointFormations = "http://localhost:3000/api/v1/Formations"
+
 
 document.addEventListener('DOMContentLoaded',() => {
-    getFormations()
+    getClubs()
+
+    
+    const createClubForm = document.querySelector("#create-a-club-form")
+    
+    createClubForm.addEventListener("submit", (e)=> createFormHandler(e))
 })
 
-function getFormations(){
-    fetch(endPoint)
+function getClubs(){
+    fetch(endPointClubs)
     .then(response => response.json())
-    .then( formations =>{
-        formations.data.forEach(formation => {
-            const formationMarkup = `
-            <div data-id=${formation.id}>
-            <h1>${formation.attributes.name} formation</h1>
-            <img src=${formation.attributes.image_url} height="250" width="200">
-            <p>${formation.attributes.description}</p>
-            <h2> Notable Clubs using this formation</h2>
-            <h3>${formation.attributes.clubs.length}</h3>
-            <button data-id=${formation.id}> edit</button>
+    .then( clubs =>{
+        clubs.data.forEach(club => {
+            const clubMarkup = `
+            <div data-id=${club.id}>
+            <h1>Club:</h1> <h2> ${club.attributes.name}</h2>
+            <h2>Manager:</h2> <h3> ${club.attributes.coach}</h3>
+            <h2> Usual Formation:</h2>
+            <h3>${club.attributes.formation.name}</h3>
+            <img src=${club.attributes.formation.image_url} height="250" width="200">
+            <p>${club.attributes.formation.description}</p>
+            <button data-id=${club.id}> edit</button>
             </div>
             <br><br>`;
             
-            document.querySelector('#formation-container').innerHTML += formationMarkup
+            document.querySelector('#club-container').innerHTML += clubMarkup
         }) 
     })
+    
+}
+
+
+function createFormHandler(e){
+    e.preventDefault()
+    const nameInput = document.querySelector("#input-name").value
+    const coachInput = document.querySelector("#input-coach").value
+    const formationId = parseInt(document.querySelector("#formations").value)
+    postFetch(nameInput,coachInput,formationId)
+}
+
+function postFetch(name, coach, formation_id){
     
 }

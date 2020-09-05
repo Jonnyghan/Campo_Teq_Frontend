@@ -6,8 +6,26 @@
         <script type="text/javascript" src="index.js"></script>
     </head>
     <body>
-        <div id="formation-container">
+        <div class="form-container">
+            <form id="create-a-club-form" style="">
+                <h1>Register your Club</h1>
             
+                <input id='input-name' type="text" name="name" placeholder="Enter Club Name" class="input-text">
+                <br><br>
+                <input id='input-coach' type="text" name="coach" placeholder="Enter Coach Name" class="input-text">
+                <br><br>
+                <p>Select Your Usual Formation</p>
+                <select id="formations" name="formations">
+                    <option value="15"> "5-4-1"</option>
+                    <option value="16"> "5-2-3-1"</option>
+                    <option value="17"> "4-4-2"</option>
+                </select>
+                <input id="create=button" type="submit" name="submit" value="Submit Club!" class="submit">
+            </form>
         </div>
+        <div id="club-container">
+        </div>
+            
+        
     </body>
 </html>
