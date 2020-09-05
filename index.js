@@ -1,5 +1,4 @@
 const endPointClubs = "http://localhost:3000/api/v1/clubs"
-const endPointFormations = "http://localhost:3000/api/v1/Formations"
 
 
 document.addEventListener('DOMContentLoaded',() => {
@@ -44,5 +43,32 @@ function createFormHandler(e){
 }
 
 function postFetch(name, coach, formation_id){
-    
+  const bodyData={name, coach, formation_id}
+   
+    fetch(endPointClubs, {
+      method: "POST",
+      mode: 'cors',
+      headers:{
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*'
+        },
+      body: JSON.stringify(bodyData)
+  })
+  .then(response => response.json())
+  .then(club => {
+    const clubData = club.data.attributes
+    const clubMarkup = `
+            <div data-id=${club.id}>
+            <h1>Club:</h1> <h2> ${clubData.name}</h2>
+            <h2>Manager:</h2> <h3> ${clubData.coach}</h3>
+            <h2> Usual Formation:</h2>
+            <h3>${clubData.formation.name}</h3>
+            <img src=${clubData.formation.image_url} height="250" width="200">
+            <p>${clubData.formation.description}</p>
+            <button data-id=${clubData.id}> edit</button>
+            </div>
+            <br><br>`;
+            
+            document.querySelector('#club-container').innerHTML += clubMarkup
+  })
 }
