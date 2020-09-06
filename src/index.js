@@ -2,7 +2,8 @@ const endPointClubs = "http://localhost:3000/api/v1/clubs"
 
 
 document.addEventListener('DOMContentLoaded',() => {
-    getClubs()
+  console.log("You're good, it's loaded") 
+  getClubs()
 
     
     const createClubForm = document.querySelector("#create-a-club-form")

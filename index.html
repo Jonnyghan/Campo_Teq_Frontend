@@ -1,32 +1,121 @@
-<!DOCTYPE html>
-<html lang="em" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <script type="text/javascript" src="src/index.js"></script>
-        <script type="text/javascript" src="src/club.js"></script>
-    </head>
-    <body>
-        <div class="form-container">
-            <form id="create-a-club-form" >
-                <h1>Register your Club</h1>
-            
-                <input id='input-name' type="text" name="name" placeholder="Enter Club Name" class="input-text">
-                <br><br>
-                <input id='input-coach' type="text" name="coach" placeholder="Enter Coach Name" class="input-text">
-                <br><br>
-                <p>Select Your Usual Formation</p>
-                <select id="formations" name="formations">
-                    <option value="15"> "5-4-1"</option>
-                    <option value="16"> "4-2-3-1"</option>
-                    <option value="17"> "4-4-2"</option>
-                </select>
-                <input id="create=button" type="submit" name="submit" value="Submit Club!" class="submit">
-            </form>
-        </div>
-        <div id="club-container">
-        </div>
-            
-        
-    </body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>CampoTeq</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/product/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="src/index.js"></script>
+    <script type="text/javascript" src="src/club.js"></script>
+
+ 
+    <!-- Custom styles for this template -->
+    <link href="index.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="site-header sticky-top py-1">
+  <div class="container  flex-column flex-md-row justify-content-between">
+    <a class="py-2" href="#" aria-label="Product">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+    </a>
+  
+  </div>
+</nav>
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+  <h1>Campo Teq</h1>
+  <p> Too often, coaches get bogged down with that essential yet basic question: "What formation should I use?" 
+    CampoTeq is here to help. Short for "Campo Technico" or "Field Coach" in Portuguese, CampoTeq should be your go-to resource for formation data!</p>
+  <hr>
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1> Register Your Club!</h1>
+    <form id="create-a-club-form" >
+      <div class="form-group">
+        <label for="input-name">Club Name</label>
+        <input  class="form-control" id="input-name"  placeholder="Example United F.C.">
+        <small  class="form-text text-muted">Go ahead, show your team spirit!</small>
+      </div>
+      <div class="form-group">
+        <label for="input-coach">Coach Name</label>
+        <input class="form-control" id="input-coach" placeholder="Sir Bobby Robson">
+      </div>
+      <div class="form-group form-select">
+        <label for="formations">Select your usual formation!</label>
+        <select class="form-control" id="formations">
+          <option value="15"> "5-4-1"</option>
+          <option value="16"> "4-2-3-1"</option>
+          <option value="17"> "4-4-2"</option>
+        </select><br>
+      </div>
+
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+ 
+</div>
+
+<div class="container-fluid" id="club-container">
+ 
+
+</div>
+
+
+
+<footer class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+      <small class="d-block mb-3 text-muted">&copy; 2017-2020</small>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Features</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">There</a></li>
+        <li><a class="text-muted" href="#">Is</a></li>
+        <li><a class="text-muted" href="#">Nothing</a></li>
+        <li><a class="text-muted" href="#">Here</a></li>
+    
+    </div>
+    <div class="col-6 col-md">
+      <h5>Resources</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">I </a></li>
+        <li><a class="text-muted" href="#">Just</a></li>
+        <li><a class="text-muted" href="#">Like</a></li>
+        <li><a class="text-muted" href="#">It</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Resources</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Thought</a></li>
+        <li><a class="text-muted" href="#">It</a></li>
+        <li><a class="text-muted" href="#">Was</a></li>
+        <li><a class="text-muted" href="#">Cool</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>About</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Please</a></li>
+        <li><a class="text-muted" href="#">Let</a></li>
+        <li><a class="text-muted" href="#">Me</a></li>
+        <li><a class="text-muted" href="#">Pass</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 </html>
