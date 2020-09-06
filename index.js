@@ -15,7 +15,14 @@ function getClubs(){
     .then(response => response.json())
     .then( clubs =>{
         clubs.data.forEach(club => {
-            const clubMarkup = `
+        render(club)            
+        }) 
+    })
+   
+}
+
+function render(club) {
+    const clubMarkup = `
             <div data-id=${club.id}>
             <h1>Club:</h1> <h2> ${club.attributes.name}</h2>
             <h2>Manager:</h2> <h3> ${club.attributes.coach}</h3>
@@ -28,11 +35,8 @@ function getClubs(){
             <br><br>`;
             
             document.querySelector('#club-container').innerHTML += clubMarkup
-        }) 
-    })
-    
-}
 
+}
 
 function createFormHandler(e){
     e.preventDefault()
@@ -56,19 +60,8 @@ function postFetch(name, coach, formation_id){
   })
   .then(response => response.json())
   .then(club => {
+      console.log(club);
     const clubData = club.data.attributes
-    const clubMarkup = `
-            <div data-id=${club.id}>
-            <h1>Club:</h1> <h2> ${clubData.name}</h2>
-            <h2>Manager:</h2> <h3> ${clubData.coach}</h3>
-            <h2> Usual Formation:</h2>
-            <h3>${clubData.formation.name}</h3>
-            <img src=${clubData.formation.image_url} height="250" width="200">
-            <p>${clubData.formation.description}</p>
-            <button data-id=${clubData.id}> edit</button>
-            </div>
-            <br><br>`;
-            
-            document.querySelector('#club-container').innerHTML += clubMarkup
+    render(clubData)
   })
 }
