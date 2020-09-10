@@ -1,7 +1,32 @@
-  <div class="bg-primary mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-    <div class="my-3 py-3">
-      <h2 class="display-5">Another headline</h2>
-      <p class="lead">And an even wittier subheading.</p>
-    </div>
-    <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-  </div>
+    <button type="delete" onclick="${deleteFetch(this)}" class="btn btn-light btn-lg btn-block" id="${this.id}">Delete</button><br>
+
+
+ deleteFetch = function(id) {
+         debugger
+          const endPointClubsDelete = `http://localhost:3000/api/v1/clubs/${id}`
+          fetch(endPointClubsDelete, {method: "DELETE"})
+        }
+
+
+ let deleteButton = document.querySelector("delete-button")
+deleteButton.addEventListener("click", () => console.log("yes"))
+function deleteFetch(club) {
+    debugger
+     const endPointClubsDelete = `http://localhost:3000/api/v1/clubs/${club.id}`
+     fetch(endPointClubsDelete, {method: "DELETE"})
+   }
+    
+
+   const newestClub= clubs.data[clubs.data.length-1]
+
+
+
+
+
+
+    <label for="formations">Select your usual formation!</label>
+        <select class="form-control" id="formations">
+          <option value="15"> "5-4-1"</option>
+          <option value="16"> "4-2-3-1"</option>
+          <option value="17"> "4-4-2"</option>
+        </select><br>
